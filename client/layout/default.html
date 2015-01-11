@@ -18,30 +18,63 @@
 	</body>
 </template>
 <template name="user_info">
-	<ul class="nav pull-right">
 	{{#if currentUser}}
 		{{> logged_in}}
 	{{else}}
 		{{>logged_out}}
 	{{/if}}
-	</ul>
 </template>
 <template name="logged_in">
 	{{#if loggingIn}}
 		<li> <a> Logging in...</a></li>
 	{{else}}
-		<li> <img class="img-rounded" style="height:32px;margin-top:4px;" src="{{currentUser.profile.picture}}"> </li>
-		<li class="dropdown"> 
-			<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+	<ul id="slide-out" class="side-nav full">
+    <li><a href="#!">First Sidebar Link</a></li>
+    <li><a href="#!">Second Sidebar Link</a></li>
+    <li class="no-padding">
+      <ul class="collapsible collapsible-accordion">
+        <li>
+          <div class="collapsible-header">Dropdown<i class="mdi-navigation-arrow-drop-down"></i></div>
+          <div class="collapsible-body">
+            <ul>
+              <li><a href="#!">First Dropdown Link</a></li>
+              <li><a href="#!">Second Dropdown Link</a></li>
+              <li><a href="#!">Third Dropdown Link</a></li>
+              <li><a href="#!">Fourth Dropdown Link</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  			
+	
+		 <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo">Logo</a>
+        <ul id="nav-mobile" class="right side-nav">
+          <li> <img class="img-rounded" style="height:32px;margin-top:4px;" src="{{currentUser.profile.picture}}"> </li>
+		<li> 
+			<a href="#" class="dropdown-button" data-activates="dropdown1">
 				{{currentUser.profile.name}}
 				<b class="caret"></b>
 			</a>
-			<ul class="dropdown-menu">
+	<ul id="dropdown1" class="dropdown-content">
+  
 				<li> <a > Account Settings</a></li>
 				<li class="divider"></li>
 				<li> <a id="logout"> Logout</a></li>
 			</ul>
 		</li>
+        </ul>
+
+        <!-- Include this line below -->
+        <a class="button-collapse" href="#" data-activates="slide-out"><i class="mdi-navigation-menu"></i></a>
+        <!-- End -->
+
+      </div>
+    </nav>
 	{{/if}}
 
 </template>
