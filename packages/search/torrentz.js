@@ -1,6 +1,6 @@
 Torrentz = function(filter, keyword, url) {
 
-    this.filter = (filter) ? filter : "search";
+    this.filter = (filter) ? filter : "_";
     this.keyword = (keyword) ? keyword : "_";
     this.url = (url) ? url : "http://torrentz.in";
 
@@ -9,7 +9,7 @@ Torrentz = function(filter, keyword, url) {
 Torrentz.prototype.getData = function(filter, keyword, url) {
     var _this = this;
 
-    this.filter = (filter) ? filter : "search";
+    this.filter = (filter) ? filter : "_";
     this.keyword = (keyword) ? keyword : "_";
     this.url = (url) ? url : "http://torrentz.in";
 
