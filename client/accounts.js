@@ -19,7 +19,7 @@ Template.logged_out.events({
         "click #logout": function(e, tmpl) {
             Meteor.logout(function(err) {
                 if(err) {
-                    //sow err message
+                    console.log(err);
                 } else {
                     //show alert that says logged out
                     //alert('logged out');
