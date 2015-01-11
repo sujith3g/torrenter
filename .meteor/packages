@@ -5,6 +5,18 @@
 # but you can also edit it by hand.
 
 meteor-platform
-autopublish
-insecure
 iron:router
+
+
+
+# linto
+
+jsdelivr:cdnify
+torrentz:search
+
+jsdelivr
+
+# linto
+
+
+
