@@ -29,18 +29,18 @@
 		<li> <a> Logging in...</a></li>
 	{{else}}
 	<ul id="slide-out" class="side-nav full">
-    <li><a href="#!">First Sidebar Link</a></li>
-    <li><a href="#!">Second Sidebar Link</a></li>
+    <li><a href="#!">1</a></li>
+    <li><a href="#!">2</a></li>
     <li class="no-padding">
       <ul class="collapsible collapsible-accordion">
         <li>
-          <div class="collapsible-header">Dropdown<i class="mdi-navigation-arrow-drop-down"></i></div>
+          <div class="collapsible-header">><i class="mdi-navigation-arrow-drop-down"></i></div>
           <div class="collapsible-body">
             <ul>
-              <li><a href="#!">First Dropdown Link</a></li>
-              <li><a href="#!">Second Dropdown Link</a></li>
-              <li><a href="#!">Third Dropdown Link</a></li>
-              <li><a href="#!">Fourth Dropdown Link</a></li>
+              <li><a href="#!">1</a></li>
+              <li><a href="#!">2</a></li>
+              <li><a href="#!">3</a></li>
+              <li><a href="#!">4</a></li>
             </ul>
           </div>
         </li>
@@ -52,9 +52,9 @@
 	
 		 <nav>
       <div class="nav-wrapper">
-        <a href="#" class="brand-logo">Logo</a>
+        <a href="#" class="brand-logo">Torrentor</a>
         <ul id="nav-mobile" class="right side-nav">
-          <li> <img class="img-rounded" style="height:32px;margin-top:4px;" src="{{currentUser.profile.picture}}"> </li>
+          <li> <img class="img-rounded" style="height:22px;" src="{{currentUser.profile.picture}}"> </li>
 		<li> 
 			<a href="#" class="dropdown-button" data-activates="dropdown1">
 				{{currentUser.profile.name}}
@@ -79,6 +79,6 @@
 
 </template>
 <template name="logged_out">
-	<li> <a id="login" > Login with Google</a></li>
+	<li> <a id="login" class="waves-effect waves-light btn-large"> Login with Google</a></li>
 </template>
 
