@@ -63,13 +63,11 @@
         color: #4db6ac;
         font-weight: 300;
     }
-  
     header,
     main,
     footer {
         padding-left: 240px;
     }
-    
     footer.example {
         padding-left: 0;
     }
@@ -260,14 +258,13 @@
             </li>
             <li class="bold"><a href="#">Help</a>
             </li>
-                    <li> 
-	
-			<a href="#">
-			<img class="img-rounded" style="height:22px;" src="{{currentUser.profile.picture}}">
-				{{currentUser.profile.name}}
-				<b class="caret"></b>
-			</a>
-			</li>
+            <li class="bold">
+
+                <a href="#">
+                    <img class="img-rounded" style="height:22px;" src="{{currentUser.profile.picture}}"> {{currentUser.profile.name}}
+                    <b class="caret"></b>
+                </a>
+            </li>
             <li class="bold absolute"><a href="#" id="logout">Logout</a>
             </li>
         </ul>
@@ -353,51 +350,59 @@
             <div class="">
                 <form class="">
                     <div class="">
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="Tag" type="text">
-                            <label for="Tag">Tag</label>
-                        </div>
-	</div>
                         <div class="row">
-                        <div class="col s6">
-                            <label>Catagory</label>
-                            <select>
-                                <!-- <option value="" disabled selected></option> -->
-                                <option value="1">Movies</option>
-                                <option value="2">Music</option>
-                                <option value="3">Games</option>
-                            </select>
-                        </div>
-                        <div class="col s6">
-                        <label for="filters">Filter</label>
-                            <p id="filters"> 
-                                <input type="checkbox" id="vefified" />
-                                <label for="vefified">Vefified</label>
-                            </p>
-
-                        </div>
+                            <div class="input-field col s12">
+                                <input id="Tag" type="text">
+                                <label for="Tag">Tag</label>
+                            </div>
                         </div>
                         <div class="row">
-                        <div class="col s6">
-                            <label for="seed-p">Minimum Seeds</label>
-                            <p class="range-field" id="seed-p">
-                                <input type="range" id="seed" min="0" max="100" />
-
-                            </p>
+                            <div class="col s6">
+                                <label>Catagory</label>
+                                <select>
+                                    <!-- <option value="" disabled selected></option> -->
+                                    <option value="1">Movies</option>
+                                    <option value="2">Music</option>
+                                    <option value="3">Games</option>
+                                </select>
                             </div>
                             <div class="col s6">
-                            <label for="peer-p">Minimum Peers</label>
-                            <p class="range-field" id="peer-p">
-                                <input type="range" id="peer" min="0" max="100" />
+                                <label for="filters">Filter</label>
+                                <p id="filters">
+                                    <input type="checkbox" id="vefified" />
+                                    <label for="vefified">Vefified</label>
+                                </p>
 
-                            </p>
+                            </div>
                         </div>
+                        <div class="row">
+                            <div class="col s6">
+                                <label for="seed-p">Minimum Seeds</label>
+                                <p class="range-field" id="seed-p">
+                                    <input type="range" id="seed" min="0" max="100" />
+
+                                </p>
+                            </div>
+                            <div class="col s6">
+                                <label for="peer-p">Minimum Peers</label>
+                                <p class="range-field" id="peer-p">
+                                    <input type="range" id="peer" min="0" max="100" />
+
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </form>
             </div>
-            <a href="#" type="reset" id="form-add" class="waves-effect btn-flat modal-close">Agree</a>
+            <div class="row">
+
+                <div class="col s6 offset-s3 grid-example"><span class="flow-text"> <button class="btn waves-effect waves-light modal-close" id="form-add" type="submit" name="action">Submit
+    <i class="mdi-content-send right"></i>
+  </button></span>
+                </div>
+            </div>
+            <!-- <a href="#" type="reset"  class="waves-effect waves-teal ">Agree</a> -->
+
         </div>
     </main>
 
