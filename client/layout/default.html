@@ -1,51 +1,469 @@
 <template name="default">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shicon" type="image/png" href="icon.png"/>
-		<title>Patbook</title>		
-		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-		<!--[if lt IE 9]>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#00897b">
+
+        <link rel="shicon" type="image/png" href="icon.png" />
+        <title>Patbook</title>
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
 			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 		<![endif]-->
-	</head>
-	<body>	  
-		{{> user_info}}
-	  {{> yield}}
-	</body>
+    </head>
+
+    <body>
+
+        {{> user_info}} {{> yield}}
+    </body>
 </template>
 <template name="user_info">
-	<ul class="nav pull-right">
-	{{#if currentUser}}
-		{{> logged_in}}
-	{{else}}
-		{{>logged_out}}
-	{{/if}}
-	</ul>
+    {{#if currentUser}} {{> logged_in}} {{else}} {{>logged_out}} {{/if}}
 </template>
 <template name="logged_in">
-	{{#if loggingIn}}
-		<li> <a> Logging in...</a></li>
-	{{else}}
-		<li> <img class="img-rounded" style="height:32px;margin-top:4px;" src="{{currentUser.profile.picture}}"> </li>
-		<li class="dropdown"> 
-			<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+    {{#if loggingIn}}
+    <li> <a> Logging in...</a>
+    </li>
+    {{else}}
+    <style type="text/css">
+    body {
+        background-color: #fcfcfc;
+    }
+    p.box {
+        padding: 20px;
+    }
+    p {
+        color: rgba(0, 0, 0, 0.71);
+        padding: 0;
+        -webkit-font-smoothing: antialiased;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        -webkit-font-smoothing: antialiased;
+    }
+    nav {
+        overflow: hidden;
+    }
+    nav a {
+        -webkit-font-smoothing: antialiased;
+    }
+    nav ul li:hover,
+    nav ul li.active {
+        background-color: #4db6ac;
+    }
+    .header {
+        color: #4db6ac;
+        font-weight: 300;
+    }
+    header,
+    main,
+    footer {
+        padding-left: 240px;
+    }
+    footer.example {
+        padding-left: 0;
+    }
+    @media only screen and (max-width: 992px) {
+        header,
+        main,
+        footer {
+            padding-left: 0;
+        }
+    }
+    ul.side-nav.fixed li.logo {
+        text-align: center;
+        padding-top: 32px;
+        margin-bottom: 16px;
+        border-bottom: 1px solid #ddd;
+    }
+    ul.side-nav.fixed li.logo:hover {
+        background-color: transparent;
+    }
+    ul.side-nav.fixed {
+        overflow: hidden;
+        padding-bottom: 50px;
+    }
+    ul.side-nav.fixed li {
+        line-height: 44px;
+    }
+    ul.side-nav.fixed li:hover,
+    ul.side-nav.fixed li.active {
+        background-color: rgba(0, 0, 0, 0.05);
+    }
+    ul.side-nav.fixed li a {
+        font-size: 13px;
+    }
+    ul.side-nav.fixed ul.collapsible-accordion {
+        background-color: #FFF;
+    }
+    ul.side-nav.fixed:hover {
+        overflow-y: auto;
+    }
+    .bold > a {
+        font-weight: bold;
+    }
+    ul.side-nav .collapsible-body li.active {
+        background-color: #4db6ac;
+    }
+    ul.side-nav .collapsible-body li.active a {
+        color: #fff;
+    }
+    #logo-container {
+        height: 57px;
+        margin-bottom: 32px;
+    }
+    nav.top-nav {
+        height: 122px;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+    }
+    nav.top-nav a.page-title {
+        line-height: 122px;
+        font-size: 48px;
+    }
+    a.button-collapse.top-nav {
+        position: absolute;
+        left: 7.5%;
+        top: 0;
+        float: none;
+        margin-left: 1.5rem;
+        color: #fff;
+        font-size: 32px;
+        z-index: 2;
+    }
+    a.button-collapse.top-nav.full {
+        line-height: 122px;
+    }
+    @media only screen and (max-width: 600px) {
+        a.button-collapse.top-nav {
+            left: 5%;
+        }
+    }
+    @media only screen and (max-width: 992px) {
+        nav .nav-wrapper {
+            text-align: center;
+        }
+        nav .nav-wrapper a.page-title {
+            font-size: 36px;
+        }
+    }
+    @media only screen and (min-width: 993px) {
+        .container {
+            width: 85%;
+        }
+    }
+    #front-page-logo {
+        display: inline-block;
+        height: 100%;
+        pointer-events: none;
+    }
+    .add-btn {
+        position: fixed;
+        bottom: 5px;
+        right: 10px;
+    }
+    </style>
+    <!-- Navbar goes here -->
+
+    <!-- Page Layout here -->
+    <!-- Note that "m8 l9" was added -->
+    <!--       	 <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo">Torrentor</a>
+        <ul id="nav-mobile" class="right side-nav">
+          <li> <img class="img-rounded" style="height:22px;" src="{{currentUser.profile.picture}}"> </li>
+		<li> 
+			<a href="#" class="dropdown-button" data-activates="dropdown1">
 				{{currentUser.profile.name}}
 				<b class="caret"></b>
 			</a>
-			<ul class="dropdown-menu">
+	<ul id="dropdown1" class="dropdown-content">
+  
 				<li> <a > Account Settings</a></li>
 				<li class="divider"></li>
-				<li> <a id="logout"> Logout</a></li>
+				
 			</ul>
 		</li>
-	{{/if}}
+        </ul>
+
+        <a class="button-collapse" href="#" data-activates="slide-out"><i class="mdi-navigation-menu"></i></a>
+        
+
+      </div>
+    </nav> -->
+    <header>
+        <nav class="top-nav teal lighten-2">
+            <div class="container">
+                <div class="nav-wrapper"><a class="page-title">Torrentor</a>
+                </div>
+
+            </div>
+        </nav>
+        <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav full"><i class="mdi-navigation-menu"></i></a>
+        </div>
+        <ul id="nav-mobile" class="side-nav fixed">
+            <li class="logo teal darken-1">
+                <a id="logo-container" href="#" class="brand-logo">
+                    <img id="front-page-logo" src="img/pirate.png" />
+                </a>
+            </li>
+
+            <li class="no-padding">
+                <ul class="collapsible collapsible-accordion">
+                    <li class="bold"><a class="collapsible-header active">Tags</a>
+                        <div class="collapsible-body" style="display: none;">
+                            <ul>
+                                <li class="active"><a href="#">Malayalam</a>
+                                </li>
+                                <li><a href="#">Hindi</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="bold active"><a class="collapsible-header">Tags2</a>
+                        <div class="collapsible-body" style="display: none;">
+                            <ul>
+                                <li><a href="#">Malayalam</a>
+                                </li>
+                                <li><a href="#">Hindi</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="bold"><a class="collapsible-header">Tags3</a>
+                        <div class="collapsible-body" style="display: none;">
+                            <ul>
+                                <li><a href="#">Malayalam</a>
+                                </li>
+                                <li><a href="#">Hindi</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li class="bold"><a href="#">About</a>
+            </li>
+            <li class="bold"><a href="#">Help</a>
+            </li>
+            <li class="bold">
+
+                <a href="#">
+                    <img class="img-rounded" style="height:22px;" src="{{currentUser.profile.picture}}"> {{currentUser.profile.name}}
+                    <b class="caret"></b>
+                </a>
+            </li>
+            <li class="bold absolute"><a href="#" id="logout">Logout</a>
+            </li>
+        </ul>
+    </header>
+    <main>
+        <ul class="collection with-header">
+            <li class="collection-header">
+                <h4><tag>Malayalam</tag> : Latest Torrents</h4>
+            </li>
+            <li class="collection-item">
+                <a href="http://torrentz.in/f5d565be88548569f093ebc50fc8c727023b009d">
+                    <div>Bhayya My Brother 2014 <b>Malayalam</b> DVDRip x264 AAC 5 1 E Subs MBRHDRG<a href="http://torrentz.in/f5d565be88548569f093ebc50fc8c727023b009d" class="secondary-content"><i class="secondary-content mdi-content-send"></i></a>
+                    </div>
+                </a>
+            </li>
+            <li class="collection-item">
+                <a href="http://torrentz.in/f5d565be88548569f093ebc50fc8c727023b009d">
+                    <div>Bhayya My Brother 2014 <b>Malayalam</b> DVDRip x264 AAC 5 1 E Subs MBRHDRG<a href="http://torrentz.in/f5d565be88548569f093ebc50fc8c727023b009d" class="secondary-content"><i class="secondary-content mdi-content-send"></i></a>
+                    </div>
+                </a>
+            </li>
+            <li class="collection-item">
+                <a href="http://torrentz.in/f5d565be88548569f093ebc50fc8c727023b009d">
+                    <div>Bhayya My Brother 2014 <b>Malayalam</b> DVDRip x264 AAC 5 1 E Subs MBRHDRG<a href="http://torrentz.in/f5d565be88548569f093ebc50fc8c727023b009d" class="secondary-content"><i class="secondary-content mdi-content-send"></i></a>
+                    </div>
+                </a>
+            </li>
+            <li class="collection-item">
+                <a href="http://torrentz.in/f5d565be88548569f093ebc50fc8c727023b009d">
+                    <div>Bhayya My Brother 2014 <b>Malayalam</b> DVDRip x264 AAC 5 1 E Subs MBRHDRG<a href="http://torrentz.in/f5d565be88548569f093ebc50fc8c727023b009d" class="secondary-content"><i class="secondary-content mdi-content-send"></i></a>
+                    </div>
+                </a>
+            </li>
+            <li class="collection-item">
+                <a href="http://torrentz.in/f5d565be88548569f093ebc50fc8c727023b009d">
+                    <div>Bhayya My Brother 2014 <b>Malayalam</b> DVDRip x264 AAC 5 1 E Subs MBRHDRG<a href="http://torrentz.in/f5d565be88548569f093ebc50fc8c727023b009d" class="secondary-content"><i class="secondary-content mdi-content-send"></i></a>
+                    </div>
+                </a>
+            </li>
+            <li class="collection-item">
+                <a href="http://torrentz.in/f5d565be88548569f093ebc50fc8c727023b009d">
+                    <div>Bhayya My Brother 2014 <b>Malayalam</b> DVDRip x264 AAC 5 1 E Subs MBRHDRG<a href="http://torrentz.in/f5d565be88548569f093ebc50fc8c727023b009d" class="secondary-content"><i class="secondary-content mdi-content-send"></i></a>
+                    </div>
+                </a>
+            </li>
+            <li class="collection-item">
+                <a href="http://torrentz.in/f5d565be88548569f093ebc50fc8c727023b009d">
+                    <div>Bhayya My Brother 2014 <b>Malayalam</b> DVDRip x264 AAC 5 1 E Subs MBRHDRG<a href="http://torrentz.in/f5d565be88548569f093ebc50fc8c727023b009d" class="secondary-content"><i class="secondary-content mdi-content-send"></i></a>
+                    </div>
+                </a>
+            </li>
+            <li class="collection-item">
+                <a href="http://torrentz.in/f5d565be88548569f093ebc50fc8c727023b009d">
+                    <div>Bhayya My Brother 2014 <b>Malayalam</b> DVDRip x264 AAC 5 1 E Subs MBRHDRG<a href="http://torrentz.in/f5d565be88548569f093ebc50fc8c727023b009d" class="secondary-content"><i class="secondary-content mdi-content-send"></i></a>
+                    </div>
+                </a>
+            </li>
+            <li class="collection-item">
+                <a href="http://torrentz.in/f5d565be88548569f093ebc50fc8c727023b009d">
+                    <div>Bhayya My Brother 2014 <b>Malayalam</b> DVDRip x264 AAC 5 1 E Subs MBRHDRG<a href="http://torrentz.in/f5d565be88548569f093ebc50fc8c727023b009d" class="secondary-content"><i class="secondary-content mdi-content-send"></i></a>
+                    </div>
+                </a>
+            </li>
+            <li class="collection-item">
+                <a href="http://torrentz.in/f5d565be88548569f093ebc50fc8c727023b009d">
+                    <div>Bhayya My Brother 2014 <b>Malayalam</b> DVDRip x264 AAC 5 1 E Subs MBRHDRG<a href="http://torrentz.in/f5d565be88548569f093ebc50fc8c727023b009d" class="secondary-content"><i class="secondary-content mdi-content-send"></i></a>
+                    </div>
+                </a>
+            </li>
+            <li class="collection-item">
+                <a href="http://torrentz.in/f5d565be88548569f093ebc50fc8c727023b009d">
+                    <div>Bhayya My Brother 2014 <b>Malayalam</b> DVDRip x264 AAC 5 1 E Subs MBRHDRG<a href="http://torrentz.in/f5d565be88548569f093ebc50fc8c727023b009d" class="secondary-content"><i class="secondary-content mdi-content-send"></i></a>
+                    </div>
+                </a>
+            </li>
+
+        </ul>
+        <a class="add-btn waves-effect waves-light modal-trigger btn-floating btn-large red" href="#modal1"><i class="mdi-content-add"></i> </a>
+
+        <!-- Modal Structure -->
+        <div id="modal1" class="modal">
+            <h4>Add Tag</h4>
+            <div class="">
+                <form class="">
+                    <div class="">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="Tag" type="text">
+                                <label for="Tag">Tag</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s6">
+                                <label>Catagory</label>
+                                <select>
+                                    <!-- <option value="" disabled selected></option> -->
+                                    <option value="1">Movies</option>
+                                    <option value="2">Music</option>
+                                    <option value="3">Games</option>
+                                </select>
+                            </div>
+                            <div class="col s6">
+                                <label for="filters">Filter</label>
+                                <p id="filters">
+                                    <input type="checkbox" id="vefified" />
+                                    <label for="vefified">Vefified</label>
+                                </p>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s6">
+                                <label for="seed-p">Minimum Seeds</label>
+                                <p class="range-field" id="seed-p">
+                                    <input type="range" id="seed" min="0" max="100" />
+
+                                </p>
+                            </div>
+                            <div class="col s6">
+                                <label for="peer-p">Minimum Peers</label>
+                                <p class="range-field" id="peer-p">
+                                    <input type="range" id="peer" min="0" max="100" />
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="row">
+
+                <div class="col s6 offset-s3 grid-example"><span class="flow-text"> <button class="btn waves-effect waves-light modal-close" id="form-add" type="submit" name="action">Submit
+    <i class="mdi-content-send right"></i>
+  </button></span>
+                </div>
+            </div>
+            <!-- <a href="#" type="reset"  class="waves-effect waves-teal ">Agree</a> -->
+
+        </div>
+    </main>
+
+
+    <!-- <ul id="slide-out" class="side-nav full">
+    <li> <a id="logout"> Logout</a></li>
+    <li><a href="#!">2</a></li>
+    <li class="no-padding">
+      <ul class="collapsible collapsible-accordion">
+        <li>
+          <div class="collapsible-header">><i class="mdi-navigation-arrow-drop-down"></i></div>
+          <div class="collapsible-body">
+            <ul>
+              <li><a href="#!">1</a></li>
+              <li><a href="#!">2</a></li>
+              <li><a href="#!">3</a></li>
+              <li><a href="#!">4</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </li>
+  </ul> -->
+
+
+
+
+
+    {{/if}}
 
 </template>
 <template name="logged_out">
-	<li> <a id="login" > Login with Google</a></li>
+    <nav>
+        <div class="nav-wrapper teal">
+            <a href="#" class="brand-logo">Torrentor</a>
+            <ul id="nav-mobile" class="right side-nav">
+                <li><a href="#">A</a>
+                </li>
+                <li><a href="#">C</a>
+                </li>
+                <li><a href="#">D</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="parallax-container">
+        <div class="parallax"><img src="img/para1.jpg">
+        </div>
+    </div>
+    <div class="section white">
+        <div class="row container">
+            <center>
+                <p class="grey-text text-darken-3 lighten-3"><a id="login" class="waves-effect waves-teal btn-large"> Login with Google</a>
+                </p>
+            </center>
+        </div>
+    </div>
+    <div class="parallax-container">
+        <div class="parallax"><img src="img/para2.jpg">
+        </div>
+    </div>
+    <style type="text/css">
+    </style>
 </template>
-
