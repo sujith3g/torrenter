@@ -29,8 +29,15 @@ Template.logged_in.events({
 })
 Template.logged_in.rendered = function() {
     // Initialize collapse button
-    $(".button-collapse").sideNav();
+    $(".button-collapse").sideNav({menuWidth: 240, activationWidth: 70});
     // Initialize collapsible
     $('.collapsible').collapsible();
     $('.dropdown-button').dropdown();
+    $('.modal-trigger').leanModal();
+    $('select').material_select();
+};
+
+Template.logged_out.rendered = function() {
+    $('.parallax').parallax();
+   
 };
