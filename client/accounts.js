@@ -35,6 +35,28 @@ Template.logged_in.rendered = function() {
     $('.dropdown-button').dropdown();
     $('.modal-trigger').leanModal();
     $('select').material_select();
+    // Push.Configure({
+    //     gcm: {
+    //         // Required for Android and Chrome OS
+    //         projectNumber: '767912667782'
+    //     },
+    //     // apn: {
+    //     //     // Only required if using safari web push, not required
+    //     //     // for iOS / cordova
+    //     //     websitePushId: 'com.push.server'
+    //     //     webServiceUrl: 'http://some.server.com'
+    //     // },
+    //     // bagde: true,
+    //     sound: true,
+    //     alert: true
+    // });
+
+    Push.id(); // Unified application id - not a token
+    Push.addListener('message', function(notification) {
+        // Called on every message
+        console.log("message recieved",notification);
+    });
+
 };
 
 Template.logged_out.rendered = function() {
