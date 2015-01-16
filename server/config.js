@@ -1,6 +1,6 @@
 var ServiceSettings = {
-"google_clientId" : "767912667782-bonpfuqdmu5jmn1bp1a8bgg6mdcorgc5.apps.googleusercontent.com",
-"google_secret" : "pOnK8xBXB3zRDNGn3hyjrkxH"
+"google_clientId" : "767912667782-4v5qftj57161f321cpl1voeest3amtsq.apps.googleusercontent.com",
+"google_secret" : "t8jIDuuYMEcAP1i9MKPwlrmh"
 };
     Meteor.startup(function () {
         Accounts.loginServiceConfiguration.remove({
