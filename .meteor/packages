@@ -14,7 +14,6 @@ iron:router
 jsdelivr:cdnify
 torrentz:search
 
-jsdelivr
 
 # linto
 
@@ -22,3 +21,6 @@ jsdelivr
 
 accounts-google
 accounts-ui
+
+
+jsdelivr
