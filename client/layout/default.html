@@ -5,9 +5,10 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#00897b">
-
+        <link type="text/css" rel="stylesheet" href="/css/css/materialize.min.css"  media="screen,projection"/>
         <link rel="shicon" type="image/png" href="icon.png" />
         <title>Patbook</title>
+        
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -206,7 +207,7 @@
 
             <li class="no-padding">
                 <ul class="collapsible collapsible-accordion">
-                    <li class="bold"><a class="collapsible-header active">Tags</a>
+                    <a class="collapsible-header active">Movies <span class="badge">1</span></a>
                         <div class="collapsible-body" style="display: none;">
                             <ul>
                                 <li class="active"><a href="#">Malayalam</a>
@@ -216,24 +217,24 @@
 
                             </ul>
                         </div>
-                    </li>
-                    <li class="bold active"><a class="collapsible-header">Tags2</a>
+                    
+                    <li class="bold active"><a class="collapsible-header">Games <span class="new badge">4</span></a>
                         <div class="collapsible-body" style="display: none;">
                             <ul>
-                                <li><a href="#">Malayalam</a>
+                                <li><a href="#">Fifa 15 <span class="new badge">4</span></a>
                                 </li>
-                                <li><a href="#">Hindi</a>
+                                <li><a href="#">Fifa</a>
                                 </li>
 
                             </ul>
                         </div>
                     </li>
-                    <li class="bold"><a class="collapsible-header">Tags3</a>
+                    <li class="bold"><a class="collapsible-header">TV <span class="new badge">3</span></a>
                         <div class="collapsible-body" style="display: none;">
                             <ul>
-                                <li><a href="#">Malayalam</a>
+                                <li><a href="#">Game of thrones</a>
                                 </li>
-                                <li><a href="#">Hindi</a>
+                                <li><a href="#">Dexter</a>
                                 </li>
 
                             </ul>
@@ -285,16 +286,19 @@
                     </div>
                     <div class="row">
                         <div class="col s6">
-                            <label for="seed-p">Minimum Seeds</label>
-                            <p class="range-field" id="seed-p">
-                                <input type="range" id="seed" min="0" max="100" />
+                            
+                            <p class="input-field" id="seed-p">
+                                <input type="text" id="seed" />
+                                <label for="seed">Min. Seeds</label>
+
 
                             </p>
                         </div>
                         <div class="col s6">
-                            <label for="peer-p">Minimum Peers</label>
-                            <p class="range-field" id="peer-p">
-                                <input type="range" id="peer" min="0" max="100" />
+                            
+                            <p class="input-field" id="peer-p">
+                                <input type="text" id="peer" />
+                                <label for="peer">Min. Peers</label>
 
                             </p>
                         </div>
@@ -305,7 +309,7 @@
         <div class="row">
 
             <div class="col s6 offset-s3 grid-example"><span class="flow-text"> <button class="btn waves-effect waves-light modal-close" id="form-add" type="submit" name="action">Submit
-    <i class="mdi-content-send right"></i>
+    <i class="fa fa-arrow-circle-right right"></i>
   </button></span>
             </div>
         </div>

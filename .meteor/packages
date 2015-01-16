@@ -10,9 +10,7 @@ iron:router
 
 
 # linto
-
 torrentz:search
-
 
 # linto
 
@@ -20,9 +18,9 @@ torrentz:search
 
 accounts-google
 accounts-ui
-d0minikk:materialize-meteor
 raix:push
 #linto:fontawesome
+multiply:iron-router-progress
 
 jsdelivr:cdnify
 
