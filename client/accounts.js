@@ -1,4 +1,4 @@
-Template.logged_out.events({
+Template.gsignIn.events({
     "click #login": function(e, tmpl) {
         Meteor.loginWithGoogle({
             requestPermissions: ['email', 'profile']
@@ -8,6 +8,7 @@ Template.logged_out.events({
                 alert('error : ' + err);
                 throw new Meteor.Error(Accounts.LoginCancelledError.numericError, 'Error');
             } else {
+                Router.go("/");
                 //show an alert
                 // alert('logged in');
             }
@@ -28,13 +29,7 @@ Template.logged_in.events({
     }
 })
 Template.logged_in.rendered = function() {
-    // Initialize collapse button
-    $(".button-collapse").sideNav({menuWidth: 240, activationWidth: 70});
-    // Initialize collapsible
-    $('.collapsible').collapsible();
-    $('.dropdown-button').dropdown();
-    $('.modal-trigger').leanModal();
-    $('select').material_select();
+
 };
 
 Template.logged_out.rendered = function() {
