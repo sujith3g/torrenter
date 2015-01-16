@@ -1,0 +1,212 @@
+<template name="landingLayout">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#00897b">
+
+        <link rel="shicon" type="image/png" href="icon.png" />
+        <title>Patbook</title>
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        <link href='http://fonts.googleapis.com/css?family=Exo:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    </head>
+    <style type="text/css">
+    body {
+        background-color: #4db6ac;
+        min-height: 100%;
+        min-width: 100%;
+    }
+
+    .warning {
+        background: #d8a09f;
+        color: #603c3c;
+    }
+    .logoDiv {
+        margin-top: 10%;
+        color: white;
+    }
+         @media only screen and (max-width: 600px) {
+          .logoDiv {
+        margin-top: 30%;
+        color: white;
+    }
+    }
+    .logoDiv .logo {
+        height: 40px;
+        float: right;
+    }
+    .logoDiv h2 {
+        font-family: 'Exo', sans-serif;
+        font-size: bold;
+    }
+    .logoDiv i {
+        border-right: 1px solid rgba(0, 0, 0, 0.1);
+        padding-right: 15px;
+    }
+    .animated {
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+    }
+    @-webkit-keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            -webkit-transform: translateY(20px);
+            transform: translateY(20px);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: translateY(0);
+            transform: translateY(0);
+        }
+    }
+    @keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            -webkit-transform: translateY(20px);
+            -ms-transform: translateY(20px);
+            transform: translateY(20px);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: translateY(0);
+            -ms-transform: translateY(0);
+            transform: translateY(0);
+        }
+    }
+    .fadeInUp {
+        -webkit-animation-name: fadeInUp;
+        animation-name: fadeInUp;
+    }
+    @-webkit-keyframes fadeInDown {
+        0% {
+            opacity: 0;
+            -webkit-transform: translateY(-20px);
+            transform: translateY(-20px);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: translateY(0);
+            transform: translateY(0);
+        }
+    }
+    @keyframes fadeInDown {
+        0% {
+            opacity: 0;
+            -webkit-transform: translateY(-20px);
+            -ms-transform: translateY(-20px);
+            transform: translateY(-20px);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: translateY(0);
+            -ms-transform: translateY(0);
+            transform: translateY(0);
+        }
+    }
+    .fadeInDown {
+        -webkit-animation-name: fadeInDown;
+        animation-name: fadeInDown;
+    }
+    @font-face {
+        font-family: 'Exo';
+        font-style: normal;
+        font-weight: 100;
+        src: local('Exo Bold'), local('Exo-Bols'), url('/font/Exo') format('woff');
+    }
+    </style>
+    {{> yield}}
+
+
+</template>
+<template name="appLanding">
+    <div class="logoDiv row">
+
+        <div class="col s12 animated fadeInDown">
+            <center>
+                <h2 class="logo-Text">
+             	torr3nt3r
+              </h2>
+                <p>
+                    Torrent alerts on your mobile..!
+                </p>
+            </center>
+            <div class="row valign-wrapper">
+
+
+                <!--     <div class="col s4">
+                    <img src="img/pirate.png" alt="" class="circle responsive-img logo">
+                  
+                </div>
+                <div class="col s8">
+
+
+                   
+                </div> -->
+            </div>
+        </div>
+        <div class="g-sign-in col s12">
+            {{> gsignIn}}
+        </div>
+    </div>
+
+
+
+</template>
+<template name="accessDenied">
+    {{> gsignIn}}
+</template>
+<template name="logged_out">
+    <nav>
+        <div class="nav-wrapper teal">
+            <a href="#" class="brand-logo">Torrentor</a>
+            <ul id="nav-mobile" class="right side-nav">
+                <li><a href="#">A</a>
+                </li>
+                <li><a href="#">C</a>
+                </li>
+                <li><a href="#">D</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="parallax-container">
+        <div class="parallax"><img src="img/para1.jpg">
+        </div>
+    </div>
+    <div class="section white">
+        <div class="row container">
+            <center>
+                <p class="grey-text text-darken-3 lighten-3"><a id="login" class="waves-effect waves-teal btn-large"> Login with Google</a>
+                </p>
+            </center>
+        </div>
+    </div>
+    <div class="parallax-container">
+        <div class="parallax"><img src="img/para2.jpg">
+        </div>
+    </div>
+    <style type="text/css">
+    </style>
+</template>
+<template name="gsignIn">
+    <div class="animated fadeInUp">
+        <center>
+            <p class="grey-text text-darken-3 lighten-3">
+                <a id="login" class="waves-effect waves-teal btn-large">
+
+                    <i class="fa fa-google-plus left"></i> Login with Google
+
+                </a>
+            </p>
+        </center>
+    </div>
+    <!-- background: #e74b37; -->
+</template>
