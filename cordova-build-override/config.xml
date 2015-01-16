@@ -41,10 +41,10 @@
         <splash src="resources/ipad_landscape_2x.splash.png" width="2048" height="1536" />
     </platform>
     <platform name="android">
-        <icon src="resources/android/drawable_ldpi/icon.png" width="36" height="36" />
-        <icon src="resources/android/drawable_mdpi/icon.png" width="42" height="42" />
-        <icon src="resources/android/drawable_hdpi/icon.png" width="72" height="72" />
-        <icon src="resources/android/drawable_xhdpi/icon.png" width="96" height="96" />
+        <icon src="resources/android/drawable_ldpi/Icon.png" width="-36" height="36" />
+        <icon src="resources/android/drawable_mdpi/Icon.png" width="42" height="42" />
+        <icon src="resources/android/drawable_hdpi/Icon.png" width="72" height="72" />
+        <icon src="resources/android/drawable_xhdpi/Icon.png" width="96" height="96" />
         <splash src="resources/android_ldpi_portrait.splash.png" width="320" height="426" density="port-ldpi" />
         <splash src="resources/android_ldpi_landscape.splash.png" width="426" height="320" density="land-ldpi" />
         <splash src="resources/android_mdpi_portrait.splash.png" width="320" height="470" density="port-mdpi" />

@@ -1,4 +1,4 @@
-Template.logged_out.events({
+Template.gsignIn.events({
     "click #login": function(e, tmpl) {
        if(Accounts.loginServicesConfigured()){ 
             Meteor.loginWithGoogle({
@@ -9,6 +9,7 @@ Template.logged_out.events({
                     alert('error : ' + err);
                     throw new Meteor.Error(Accounts.LoginCancelledError.numericError, 'Error');
                 } else {
+                    Router.go("/");
                     //show an alert
                     // alert('logged in');
                 }
@@ -58,7 +59,6 @@ Template.logged_in.rendered = function() {
         // Called on every message
         console.log("message recieved",notification);
     });
-
 };
 
 Template.logged_out.rendered = function() {
