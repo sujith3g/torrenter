@@ -4,9 +4,7 @@
  * @date    2015-01-11 15:59:29
  * @version $Id$
  */
-
-(function() {
-    Accounts.onCreateUser(function(options, user) {
+   Accounts.onCreateUser(function(options, user) {
 
         var accessToken = user.services.google.accessToken,
             result,
@@ -43,4 +41,3 @@
 
         return user;
     });
-}());

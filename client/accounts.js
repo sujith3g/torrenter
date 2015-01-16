@@ -1,17 +1,19 @@
 Template.logged_out.events({
     "click #login": function(e, tmpl) {
-        Meteor.loginWithGoogle({
-            requestPermissions: ['email', 'profile']
-        }, function(err) {
-            if (err) {
-                //error handling
-                alert('error : ' + err);
-                throw new Meteor.Error(Accounts.LoginCancelledError.numericError, 'Error');
-            } else {
-                //show an alert
-                // alert('logged in');
-            }
-        });
+       if(Accounts.loginServicesConfigured()){ 
+            Meteor.loginWithGoogle({
+                requestPermissions: ['email', 'profile']
+            }, function(err) {
+                if (err) {
+                    //error handling
+                    alert('error : ' + err);
+                    throw new Meteor.Error(Accounts.LoginCancelledError.numericError, 'Error');
+                } else {
+                    //show an alert
+                    // alert('logged in');
+                }
+            });
+        }   
     }
 });
 

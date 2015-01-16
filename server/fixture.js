@@ -1,3 +1,15 @@
+Meteor.startup(function(){
+    if(db_category.find().count()===0){
+        db_category.insert({name:"Movies"});
+        db_category.insert({name:"Software"});
+        db_category.insert({name:"Music"});
+        db_category.insert({name:"Games"});
+        db_category.insert({name:"Books"});
+        db_category.insert({name:"TV"});
+        db_category.insert({name:"XXX"});
+        db_category.insert({name:"Others"});
+    }
+});
 var firstList = [{ url: 'http://torrentz.in/47f5f76b6c7a7b9f379f42d086d86102112dc190',
     title: 'Ohm Shanthi Oshaana 2014 <b>Malayalam</b> DVDRIP XVID MP3 TEAM DDH~RG',
     category: 'movies divx xvid asian',
