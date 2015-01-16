@@ -11,25 +11,13 @@
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
-			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-		<![endif]-->
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
     </head>
 
-    <body>
 
-        {{> user_info}} {{> yield}}
-    </body>
-</template>
-<template name="user_info">
-    {{#if currentUser}} {{> logged_in}} {{else}} {{>logged_out}} {{/if}}
-</template>
-<template name="logged_in">
-    {{#if loggingIn}}
-    <li> <a> Logging in...</a>
-    </li>
-    {{else}}
-    <style type="text/css">
+ <style type="text/css">
     body {
         background-color: #fcfcfc;
     }
@@ -172,35 +160,34 @@
         right: 10px;
     }
     </style>
-    <!-- Navbar goes here -->
 
-    <!-- Page Layout here -->
-    <!-- Note that "m8 l9" was added -->
-    <!--       	 <nav>
-      <div class="nav-wrapper">
-        <a href="#" class="brand-logo">Torrentor</a>
-        <ul id="nav-mobile" class="right side-nav">
-          <li> <img class="img-rounded" style="height:22px;" src="{{currentUser.profile.picture}}"> </li>
-		<li> 
-			<a href="#" class="dropdown-button" data-activates="dropdown1">
-				{{currentUser.profile.name}}
-				<b class="caret"></b>
-			</a>
-	<ul id="dropdown1" class="dropdown-content">
-  
-				<li> <a > Account Settings</a></li>
-				<li class="divider"></li>
-				
-			</ul>
-		</li>
-        </ul>
+    <!-- {{> user_info}}  -->
+    
+    {{> sideBarAndHeader}} {{> yield}} {{> createNew}}
 
-        <a class="button-collapse" href="#" data-activates="slide-out"><i class="mdi-navigation-menu"></i></a>
-        
 
-      </div>
-    </nav> -->
-    <header>
+</template>
+
+<template name="user_info">
+    {{> logged_in}}
+    <li> <a> Logging in...</a>
+    </li>
+   <!-- {{>logged_out}}  -->
+</template>
+<template name="logged_in">
+ <li class="bold">
+
+                <a href="#">
+                    <img class="img-rounded" style="height:22px;" src="{{currentUser.profile.picture}}"> {{currentUser.profile.name}}
+                    <b class="caret"></b>
+                </a>
+            </li>
+            <li class="bold absolute"><a href="#" id="logout">Logout</a>
+            </li>
+</template>
+<template name="sideBarAndHeader">
+   
+        <header>
         <nav class="top-nav teal lighten-2">
             <div class="container">
                 <div class="nav-wrapper"><a class="page-title">Torrentor</a>
@@ -258,17 +245,75 @@
             </li>
             <li class="bold"><a href="#">Help</a>
             </li>
-            <li class="bold">
-
-                <a href="#">
-                    <img class="img-rounded" style="height:22px;" src="{{currentUser.profile.picture}}"> {{currentUser.profile.name}}
-                    <b class="caret"></b>
-                </a>
-            </li>
-            <li class="bold absolute"><a href="#" id="logout">Logout</a>
-            </li>
+            {{> logged_in}}
         </ul>
     </header>
+</template>
+<template name="createNew">
+    <a class="add-btn waves-effect waves-light modal-trigger btn-floating btn-large red" href="#modal1"><i class="mdi-content-add"></i> </a>
+
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+        <h4>Add Tag</h4>
+        <div class="">
+            <form class="">
+                <div class="">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="Tag" type="text">
+                            <label for="Tag">Tag</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s6">
+                            <label>Catagory</label>
+                            <select>
+                                <!-- <option value="" disabled selected></option> -->
+                                <option value="1">Movies</option>
+                                <option value="2">Music</option>
+                                <option value="3">Games</option>
+                            </select>
+                        </div>
+                        <div class="col s6">
+                            <label for="filters">Filter</label>
+                            <p id="filters">
+                                <input type="checkbox" id="vefified" />
+                                <label for="vefified">Vefified</label>
+                            </p>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s6">
+                            <label for="seed-p">Minimum Seeds</label>
+                            <p class="range-field" id="seed-p">
+                                <input type="range" id="seed" min="0" max="100" />
+
+                            </p>
+                        </div>
+                        <div class="col s6">
+                            <label for="peer-p">Minimum Peers</label>
+                            <p class="range-field" id="peer-p">
+                                <input type="range" id="peer" min="0" max="100" />
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="row">
+
+            <div class="col s6 offset-s3 grid-example"><span class="flow-text"> <button class="btn waves-effect waves-light modal-close" id="form-add" type="submit" name="action">Submit
+    <i class="mdi-content-send right"></i>
+  </button></span>
+            </div>
+        </div>
+        <!-- <a href="#" type="reset"  class="waves-effect waves-teal ">Agree</a> -->
+
+    </div>
+</template>
+<template name="myTorrents">
     <main>
         <ul class="collection with-header">
             <li class="collection-header">
@@ -342,128 +387,8 @@
             </li>
 
         </ul>
-        <a class="add-btn waves-effect waves-light modal-trigger btn-floating btn-large red" href="#modal1"><i class="mdi-content-add"></i> </a>
 
-        <!-- Modal Structure -->
-        <div id="modal1" class="modal">
-            <h4>Add Tag</h4>
-            <div class="">
-                <form class="">
-                    <div class="">
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input id="Tag" type="text">
-                                <label for="Tag">Tag</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col s6">
-                                <label>Catagory</label>
-                                <select>
-                                    <!-- <option value="" disabled selected></option> -->
-                                    <option value="1">Movies</option>
-                                    <option value="2">Music</option>
-                                    <option value="3">Games</option>
-                                </select>
-                            </div>
-                            <div class="col s6">
-                                <label for="filters">Filter</label>
-                                <p id="filters">
-                                    <input type="checkbox" id="vefified" />
-                                    <label for="vefified">Vefified</label>
-                                </p>
-
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col s6">
-                                <label for="seed-p">Minimum Seeds</label>
-                                <p class="range-field" id="seed-p">
-                                    <input type="range" id="seed" min="0" max="100" />
-
-                                </p>
-                            </div>
-                            <div class="col s6">
-                                <label for="peer-p">Minimum Peers</label>
-                                <p class="range-field" id="peer-p">
-                                    <input type="range" id="peer" min="0" max="100" />
-
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="row">
-
-                <div class="col s6 offset-s3 grid-example"><span class="flow-text"> <button class="btn waves-effect waves-light modal-close" id="form-add" type="submit" name="action">Submit
-    <i class="mdi-content-send right"></i>
-  </button></span>
-                </div>
-            </div>
-            <!-- <a href="#" type="reset"  class="waves-effect waves-teal ">Agree</a> -->
-
-        </div>
     </main>
 
-
-    <!-- <ul id="slide-out" class="side-nav full">
-    <li> <a id="logout"> Logout</a></li>
-    <li><a href="#!">2</a></li>
-    <li class="no-padding">
-      <ul class="collapsible collapsible-accordion">
-        <li>
-          <div class="collapsible-header">><i class="mdi-navigation-arrow-drop-down"></i></div>
-          <div class="collapsible-body">
-            <ul>
-              <li><a href="#!">1</a></li>
-              <li><a href="#!">2</a></li>
-              <li><a href="#!">3</a></li>
-              <li><a href="#!">4</a></li>
-            </ul>
-          </div>
-        </li>
-      </ul>
-    </li>
-  </ul> -->
-
-
-
-
-
-    {{/if}}
-
 </template>
-<template name="logged_out">
-    <nav>
-        <div class="nav-wrapper teal">
-            <a href="#" class="brand-logo">Torrentor</a>
-            <ul id="nav-mobile" class="right side-nav">
-                <li><a href="#">A</a>
-                </li>
-                <li><a href="#">C</a>
-                </li>
-                <li><a href="#">D</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    <div class="parallax-container">
-        <div class="parallax"><img src="img/para1.jpg">
-        </div>
-    </div>
-    <div class="section white">
-        <div class="row container">
-            <center>
-                <p class="grey-text text-darken-3 lighten-3"><a id="login" class="waves-effect waves-teal btn-large"> Login with Google</a>
-                </p>
-            </center>
-        </div>
-    </div>
-    <div class="parallax-container">
-        <div class="parallax"><img src="img/para2.jpg">
-        </div>
-    </div>
-    <style type="text/css">
-    </style>
-</template>
+
