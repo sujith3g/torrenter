@@ -13,7 +13,6 @@ iron:router
 
 torrentz:search
 
-jsdelivr
 
 # linto
 
@@ -23,5 +22,9 @@ accounts-google
 accounts-ui
 d0minikk:materialize-meteor
 raix:push
-linto:fontawesome
+#linto:fontawesome
 
+jsdelivr:cdnify
+
+
+jsdelivr
