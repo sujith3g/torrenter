@@ -1,11 +1,13 @@
 Meteor.methods({
-	'createKeyword':function(keyword){
+	'getKeyword':function(keyword){
 		if(typeof keyword === "object" && Meteor.user() && keyword.text && keyword.category){
-			if(db_keywords.find({text:keyword.text}).count()===0){				
+			keyword.text = keyword.text.toLowercase();
+			if(db_keywords.find({text:keyword.text,category:keyword.category}).count()===0){
+
 				keyword.createdOn = Date.now();
 				return db_keywords.insert(keyword);		
 			}else{
-				var result = db_keywords.findOne({text:keyword.text});
+				var result = db_keywords.findOne({text:keyword.text,category:keyword.category});
 				return result._id;
 			}			
 		}else{// Error handling
@@ -19,10 +21,13 @@ Meteor.methods({
 		}
 	},
 	'subscribeKeyword':function(subscription){
-		if(Meteor.user() && typeof subscription === "object"){
+		if(Meteor.user() && typeof subscription === "object" && subscription.keywordId){
+			if(subscription.text){
+				subscription.text = subscription.text.toLowercase();
+			}
 			subscription.user = Meteor.userId();
 			if(db_subscriptions.find(subscription).count()===0){
-				return db_subscription.insert(subscription);
+				return db_subscriptions.insert(subscription);
 			}
 		}else{//Error handling
 			if(!Meteor.user()){
@@ -35,6 +40,9 @@ Meteor.methods({
 	},
 	'unsubscribeKeyword':function(subscription){
 		if(Meteor.user() && typeof subscription === "object"){
+			if(subscription.text){
+				subscription.text=subscription.text.toLowercase();
+			}
 			subscription.user = Meteor.userId();
 			if(db_subscriptions.find(subscription).count()===1){
 				var result = db_subscriptions.findOne(subscription);
