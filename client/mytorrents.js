@@ -26,7 +26,8 @@ Template.createNew.events({
 		evt.preventDefault();
 		var keyword = {}
 		var modelElement = $('#modal1');
-		keyword.text = $("#text").val();
+		var textElement = $("#text");
+		keyword.text = textElement.val();
 		keyword.category = $("#category").val();
 		keyword.seed = $("#seed").val();
 		keyword.peer = $("#peer").val();
@@ -39,8 +40,11 @@ Template.createNew.events({
 			}else{
 				keyword.keywordId = result;
 				Meteor.call('subscribeKeyword', keyword, function (error, result) {
-					if(error)
+					if(error){
 						console.log(error);
+					}else{
+						textElement.val("");
+					}
 				});
 			}
 
