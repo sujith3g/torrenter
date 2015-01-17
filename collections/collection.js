@@ -1,6 +1,7 @@
 db_keywords = new Meteor.Collection("keywords");
 db_category = new Meteor.Collection("category");
 db_subscriptions = new Meteor.Collection("subscriptions");
+db_torrents = new Meteor.Collection("torrents");
 currentUser = function(userId,doc) {
     return (!!userId);
 };

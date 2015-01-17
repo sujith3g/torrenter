@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#00897b">
-          <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <link rel="shicon" type="image/png" href="icon.png" />
         <title>Patbook</title>
 
@@ -19,7 +19,7 @@
     </head>
 
 
- <style type="text/css">
+    <style type="text/css">
     body {
         background-color: #fcfcfc;
     }
@@ -164,8 +164,8 @@
     </style>
 
     <!-- {{> user_info}}  -->
-    
-    {{> sideBarAndHeader}} {{> yield}} {{> createNew}}
+
+    {{> yield}}
 
 
 </template>
@@ -174,22 +174,22 @@
     {{> logged_in}}
     <li> <a> Logging in...</a>
     </li>
-   <!-- {{>logged_out}}  -->
+    <!-- {{>logged_out}}  -->
 </template>
 <template name="logged_in">
- <li class="bold">
+    <li class="bold">
 
-                <a href="#">
-                    <img class="img-rounded" style="height:22px;" src="{{currentUser.profile.picture}}"> {{currentUser.profile.name}}
-                    <b class="caret"></b>
-                </a>
-            </li>
-            <li class="bold absolute"><a href="#" id="logout">Logout</a>
-            </li>
+        <a href="#">
+            <img class="img-rounded" style="height:22px;" src="{{currentUser.profile.picture}}"> {{currentUser.profile.name}}
+            <b class="caret"></b>
+        </a>
+    </li>
+    <li class="bold absolute"><a href="#" id="logout">Logout</a>
+    </li>
 </template>
 <template name="sideBarAndHeader">
-   
-        <header>
+
+    <header>
         <nav class="top-nav teal lighten-2">
             <div class="container">
                 <div class="nav-wrapper"><a class="page-title">Torrentor</a>
@@ -209,16 +209,16 @@
             <li class="no-padding">
                 <ul class="collapsible collapsible-accordion">
                     <a class="collapsible-header active">Movies <span class="badge">1</span></a>
-                        <div class="collapsible-body" style="display: none;">
-                            <ul>
-                                <li class="active"><a href="#">Malayalam</a>
-                                </li>
-                                <li><a href="#">Hindi</a>
-                                </li>
+                    <div class="collapsible-body" style="display: none;">
+                        <ul>
+                            <li class="active"><a href="#">Malayalam</a>
+                            </li>
+                            <li><a href="#">Hindi</a>
+                            </li>
 
-                            </ul>
-                        </div>
-                    
+                        </ul>
+                    </div>
+
                     <li class="bold active"><a class="collapsible-header">Games <span class="new badge">4</span></a>
                         <div class="collapsible-body" style="display: none;">
                             <ul>
@@ -258,65 +258,64 @@
     <div id="modal1" class="modal">
         <h4>Add Tag</h4>
         <div class="">
-            <form class="">
+            <form class="form1" method="post">
                 <div class="">
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="Tag" type="text">
-                            <label for="Tag">Tag</label>
+                            <input id="text" type="text" required>
+                            <label for="text">Tag</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col s6">
-                            <label>Catagory</label>
-                            <select>
-                                <!-- <option value="" disabled selected></option> -->
-                                <option value="1">Movies</option>
-                                <option value="2">Music</option>
-                                <option value="3">Games</option>
+                            <label>Category</label>
+                            <select id="category">                                
+                                {{#each elements}}
+                                <option value="{{_id}}">{{name}}</option>
+                                {{/each}}                                
                             </select>
                         </div>
                         <div class="col s6">
                             <label for="filters">Filter</label>
                             <p id="filters">
-                                <input type="checkbox" id="vefified" />
-                                <label for="vefified">Vefified</label>
+                                <input type="checkbox" id="verified" />
+                                <label for="verified">Verified</label>
                             </p>
 
                         </div>
                     </div>
                     <div class="row">
                         <div class="col s6">
-                            
+
                             <p class="input-field" id="seed-p">
-                                <input type="text" id="seed" />
+                                <input type="text" id="seed" value="100"/>
                                 <label for="seed">Min. Seeds</label>
 
 
                             </p>
                         </div>
                         <div class="col s6">
-                            
+
                             <p class="input-field" id="peer-p">
-                                <input type="text" id="peer" />
+                                <input type="text" id="peer" value="100" />
                                 <label for="peer">Min. Peers</label>
 
                             </p>
                         </div>
                     </div>
                 </div>
-            </form>
-        </div>
-        <div class="row">
 
-            <div class="col s6 offset-s3 grid-example"><span class="flow-text"> <button class="btn waves-effect waves-light modal-close" id="form-add" type="submit" name="action">Submit
-    <i class="fa fa-arrow-circle-right right"></i>
-  </button></span>
-            </div>
+
+                <div class="row">
+
+                    <div class="col s6 offset-s4 grid-example"><span class="flow-text"> <button class="btn waves-effect waves-light" id="form-add" type="submit" name="action">Submit
+                    <i class="fa fa-arrow-circle-right right"></i>
+                    </button></span>
+                    </div>
+                </div>
+            </form>
         </div>
         <!-- <a href="#" type="reset"  class="waves-effect waves-teal ">Agree</a> -->
 
     </div>
 </template>
-
-
