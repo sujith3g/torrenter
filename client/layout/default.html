@@ -1,167 +1,190 @@
 <template name="default">
 
-    <head>
+  <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#00897b">
-        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
         <link rel="shicon" type="image/png" href="icon.png" />
         <title>Patbook</title>
-
-
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
+        <link href='http://fonts.googleapis.com/css?family=Exo:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     </head>
-
-
     <style type="text/css">
-    body {
-        background-color: #fcfcfc;
+
+      .animated {
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
     }
-    p.box {
-        padding: 20px;
-    }
-    p {
-        color: rgba(0, 0, 0, 0.71);
-        padding: 0;
-        -webkit-font-smoothing: antialiased;
-    }
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        -webkit-font-smoothing: antialiased;
-    }
-    nav {
-        overflow: hidden;
-    }
-    nav a {
-        -webkit-font-smoothing: antialiased;
-    }
-    nav ul li:hover,
-    nav ul li.active {
-        background-color: #4db6ac;
-    }
-    .header {
-        color: #4db6ac;
-        font-weight: 300;
-    }
-    header,
-    main,
-    footer {
-        padding-left: 240px;
-    }
-    footer.example {
-        padding-left: 0;
-    }
-    @media only screen and (max-width: 992px) {
-        header,
-        main,
-        footer {
-            padding-left: 0;
+    @-webkit-keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            -webkit-transform: translateY(20px);
+            transform: translateY(20px);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: translateY(0);
+            transform: translateY(0);
         }
     }
-    ul.side-nav.fixed li.logo {
-        text-align: center;
-        padding-top: 32px;
-        margin-bottom: 16px;
-        border-bottom: 1px solid #ddd;
-    }
-    ul.side-nav.fixed li.logo:hover {
-        background-color: transparent;
-    }
-    ul.side-nav.fixed {
-        overflow: hidden;
-        padding-bottom: 50px;
-    }
-    ul.side-nav.fixed li {
-        line-height: 44px;
-    }
-    ul.side-nav.fixed li:hover,
-    ul.side-nav.fixed li.active {
-        background-color: rgba(0, 0, 0, 0.05);
-    }
-    ul.side-nav.fixed li a {
-        font-size: 13px;
-    }
-    ul.side-nav.fixed ul.collapsible-accordion {
-        background-color: #FFF;
-    }
-    ul.side-nav.fixed:hover {
-        overflow-y: auto;
-    }
-    .bold > a {
-        font-weight: bold;
-    }
-    ul.side-nav .collapsible-body li.active {
-        background-color: #4db6ac;
-    }
-    ul.side-nav .collapsible-body li.active a {
-        color: #fff;
-    }
-    #logo-container {
-        height: 57px;
-        margin-bottom: 32px;
-    }
-    nav.top-nav {
-        height: 122px;
-        -webkit-box-shadow: none;
-        -moz-box-shadow: none;
-        box-shadow: none;
-    }
-    nav.top-nav a.page-title {
-        line-height: 122px;
-        font-size: 48px;
-    }
-    a.button-collapse.top-nav {
-        position: absolute;
-        left: 7.5%;
-        top: 0;
-        float: none;
-        margin-left: 1.5rem;
-        color: #fff;
-        font-size: 32px;
-        z-index: 2;
-    }
-    a.button-collapse.top-nav.full {
-        line-height: 122px;
-    }
-    @media only screen and (max-width: 600px) {
-        a.button-collapse.top-nav {
-            left: 5%;
+    @keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            -webkit-transform: translateY(20px);
+            -ms-transform: translateY(20px);
+            transform: translateY(20px);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: translateY(0);
+            -ms-transform: translateY(0);
+            transform: translateY(0);
         }
     }
-    @media only screen and (max-width: 992px) {
-        nav .nav-wrapper {
-            text-align: center;
+    .fadeInUp {
+        -webkit-animation-name: fadeInUp;
+        animation-name: fadeInUp;
+    }
+    @-webkit-keyframes fadeInDown {
+        0% {
+            opacity: 0;
+            -webkit-transform: translateY(-20px);
+            transform: translateY(-20px);
         }
-        nav .nav-wrapper a.page-title {
-            font-size: 36px;
+        100% {
+            opacity: 1;
+            -webkit-transform: translateY(0);
+            transform: translateY(0);
         }
     }
-    @media only screen and (min-width: 993px) {
-        .container {
-            width: 85%;
+    @keyframes fadeInDown {
+        0% {
+            opacity: 0;
+            -webkit-transform: translateY(-20px);
+            -ms-transform: translateY(-20px);
+            transform: translateY(-20px);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: translateY(0);
+            -ms-transform: translateY(0);
+            transform: translateY(0);
         }
     }
-    #front-page-logo {
-        display: inline-block;
-        height: 100%;
-        pointer-events: none;
+    .fadeInDown {
+        -webkit-animation-name: fadeInDown;
+        animation-name: fadeInDown;
     }
-    .add-btn {
-        position: fixed;
-        bottom: 5px;
-        right: 10px;
+    @font-face {
+        font-family: 'Exo';
+        font-style: normal;
+        font-weight: 100;
+        src: local('Exo Bold'), local('Exo-Bols'), url('/font/Exo') format('woff');
+    }
+    </style> <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#00897b">
+
+        <link rel="shicon" type="image/png" href="icon.png" />
+        <title>Patbook</title>
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        <link href='http://fonts.googleapis.com/css?family=Exo:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    </head>
+    <style type="text/css">
+
+      .animated {
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+    }
+    @-webkit-keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            -webkit-transform: translateY(20px);
+            transform: translateY(20px);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: translateY(0);
+            transform: translateY(0);
+        }
+    }
+    @keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            -webkit-transform: translateY(20px);
+            -ms-transform: translateY(20px);
+            transform: translateY(20px);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: translateY(0);
+            -ms-transform: translateY(0);
+            transform: translateY(0);
+        }
+    }
+    .fadeInUp {
+        -webkit-animation-name: fadeInUp;
+        animation-name: fadeInUp;
+    }
+    @-webkit-keyframes fadeInDown {
+        0% {
+            opacity: 0;
+            -webkit-transform: translateY(-20px);
+            transform: translateY(-20px);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: translateY(0);
+            transform: translateY(0);
+        }
+    }
+    @keyframes fadeInDown {
+        0% {
+            opacity: 0;
+            -webkit-transform: translateY(-20px);
+            -ms-transform: translateY(-20px);
+            transform: translateY(-20px);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: translateY(0);
+            -ms-transform: translateY(0);
+            transform: translateY(0);
+        }
+    }
+    .fadeInDown {
+        -webkit-animation-name: fadeInDown;
+        animation-name: fadeInDown;
+    }
+    @font-face {
+        font-family: 'Exo';
+        font-style: normal;
+        font-weight: 100;
+        src: local('Exo Bold'), local('Exo-Bols'), url('/font/Exo') format('woff');
     }
     </style>
+    
+
+
+   
 
     <!-- {{> user_info}}  -->
 
