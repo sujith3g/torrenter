@@ -1,51 +1,344 @@
 <template name="default">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shicon" type="image/png" href="icon.png"/>
-		<title>Patbook</title>		
-		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-		<!--[if lt IE 9]>
-			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-		<![endif]-->
-	</head>
-	<body>	  
-		{{> user_info}}
-	  {{> yield}}
-	</body>
+
+  <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#00897b">
+
+        <link rel="shicon" type="image/png" href="icon.png" />
+        <title>Patbook</title>
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        <link href='http://fonts.googleapis.com/css?family=Exo:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    </head>
+    <style type="text/css">
+
+      .animated {
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+    }
+    @-webkit-keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            -webkit-transform: translateY(20px);
+            transform: translateY(20px);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: translateY(0);
+            transform: translateY(0);
+        }
+    }
+    @keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            -webkit-transform: translateY(20px);
+            -ms-transform: translateY(20px);
+            transform: translateY(20px);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: translateY(0);
+            -ms-transform: translateY(0);
+            transform: translateY(0);
+        }
+    }
+    .fadeInUp {
+        -webkit-animation-name: fadeInUp;
+        animation-name: fadeInUp;
+    }
+    @-webkit-keyframes fadeInDown {
+        0% {
+            opacity: 0;
+            -webkit-transform: translateY(-20px);
+            transform: translateY(-20px);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: translateY(0);
+            transform: translateY(0);
+        }
+    }
+    @keyframes fadeInDown {
+        0% {
+            opacity: 0;
+            -webkit-transform: translateY(-20px);
+            -ms-transform: translateY(-20px);
+            transform: translateY(-20px);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: translateY(0);
+            -ms-transform: translateY(0);
+            transform: translateY(0);
+        }
+    }
+    .fadeInDown {
+        -webkit-animation-name: fadeInDown;
+        animation-name: fadeInDown;
+    }
+    @font-face {
+        font-family: 'Exo';
+        font-style: normal;
+        font-weight: 100;
+        src: local('Exo Bold'), local('Exo-Bols'), url('/font/Exo') format('woff');
+    }
+    </style> <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#00897b">
+
+        <link rel="shicon" type="image/png" href="icon.png" />
+        <title>Patbook</title>
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        <link href='http://fonts.googleapis.com/css?family=Exo:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    </head>
+    <style type="text/css">
+
+      .animated {
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+    }
+    @-webkit-keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            -webkit-transform: translateY(20px);
+            transform: translateY(20px);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: translateY(0);
+            transform: translateY(0);
+        }
+    }
+    @keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            -webkit-transform: translateY(20px);
+            -ms-transform: translateY(20px);
+            transform: translateY(20px);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: translateY(0);
+            -ms-transform: translateY(0);
+            transform: translateY(0);
+        }
+    }
+    .fadeInUp {
+        -webkit-animation-name: fadeInUp;
+        animation-name: fadeInUp;
+    }
+    @-webkit-keyframes fadeInDown {
+        0% {
+            opacity: 0;
+            -webkit-transform: translateY(-20px);
+            transform: translateY(-20px);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: translateY(0);
+            transform: translateY(0);
+        }
+    }
+    @keyframes fadeInDown {
+        0% {
+            opacity: 0;
+            -webkit-transform: translateY(-20px);
+            -ms-transform: translateY(-20px);
+            transform: translateY(-20px);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: translateY(0);
+            -ms-transform: translateY(0);
+            transform: translateY(0);
+        }
+    }
+    .fadeInDown {
+        -webkit-animation-name: fadeInDown;
+        animation-name: fadeInDown;
+    }
+    @font-face {
+        font-family: 'Exo';
+        font-style: normal;
+        font-weight: 100;
+        src: local('Exo Bold'), local('Exo-Bols'), url('/font/Exo') format('woff');
+    }
+    </style>
+    
+
+
+   
+
+    <!-- {{> user_info}}  -->
+
+    {{> yield}}
+
+
 </template>
+
 <template name="user_info">
-	<ul class="nav pull-right">
-	{{#if currentUser}}
-		{{> logged_in}}
-	{{else}}
-		{{>logged_out}}
-	{{/if}}
-	</ul>
+    {{> logged_in}}
+    <li> <a> Logging in...</a>
+    </li>
+    <!-- {{>logged_out}}  -->
 </template>
 <template name="logged_in">
-	{{#if loggingIn}}
-		<li> <a> Logging in...</a></li>
-	{{else}}
-		<li> <img class="img-rounded" style="height:32px;margin-top:4px;" src="{{currentUser.profile.picture}}"> </li>
-		<li class="dropdown"> 
-			<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-				{{currentUser.profile.name}}
-				<b class="caret"></b>
-			</a>
-			<ul class="dropdown-menu">
-				<li> <a > Account Settings</a></li>
-				<li class="divider"></li>
-				<li> <a id="logout"> Logout</a></li>
-			</ul>
-		</li>
-	{{/if}}
+    <li class="bold">
 
+        <a href="#">
+            <img class="img-rounded" style="height:22px;" src="{{currentUser.profile.picture}}"> {{currentUser.profile.name}}
+            <b class="caret"></b>
+        </a>
+    </li>
+    <li class="bold absolute"><a href="#" id="logout">Logout</a>
+    </li>
 </template>
-<template name="logged_out">
-	<li> <a id="login" > Login with Google</a></li>
-</template>
+<template name="sideBarAndHeader">
 
+    <header>
+        <nav class="top-nav teal lighten-2">
+            <div class="container">
+                <div class="nav-wrapper"><a class="page-title">Torrentor</a>
+                </div>
+
+            </div>
+        </nav>
+        <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav full"><i class="mdi-navigation-menu"></i></a>
+        </div>
+        <ul id="nav-mobile" class="side-nav fixed">
+            <li class="logo teal darken-1">
+                <a id="logo-container" href="#" class="brand-logo">
+                    <img id="front-page-logo" src="img/pirate.png" />
+                </a>
+            </li>
+
+            <li class="no-padding">
+                <ul class="collapsible collapsible-accordion">
+                    <a class="collapsible-header active">Movies <span class="badge">1</span></a>
+                    <div class="collapsible-body" style="display: none;">
+                        <ul>
+                            <li class="active"><a href="#">Malayalam</a>
+                            </li>
+                            <li><a href="#">Hindi</a>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                    <li class="bold active"><a class="collapsible-header">Games <span class="new badge">4</span></a>
+                        <div class="collapsible-body" style="display: none;">
+                            <ul>
+                                <li><a href="#">Fifa 15 <span class="new badge">4</span></a>
+                                </li>
+                                <li><a href="#">Fifa</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="bold"><a class="collapsible-header">TV <span class="new badge">3</span></a>
+                        <div class="collapsible-body" style="display: none;">
+                            <ul>
+                                <li><a href="#">Game of thrones</a>
+                                </li>
+                                <li><a href="#">Dexter</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li class="bold"><a href="#">About</a>
+            </li>
+            <li class="bold"><a href="#">Help</a>
+            </li>
+            {{> logged_in}}
+        </ul>
+    </header>
+</template>
+<template name="createNew">
+    <a class="add-btn waves-effect waves-light modal-trigger btn-floating btn-large red" href="#modal1"><i class="mdi-content-add"></i> </a>
+
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+        <h4>Add Tag</h4>
+        <div class="">
+            <form class="form1" method="post">
+                <div class="">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="text" type="text" required>
+                            <label for="text">Keyword</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s6">
+                            <label>Category</label>
+                            <select id="category">                                
+                                {{#each elements}}
+                                <option value="{{_id}}">{{name}}</option>
+                                {{/each}}                                
+                            </select>
+                        </div>
+                        <div class="col s6">
+                            <label for="filters">Filter</label>
+                            <p id="filters">
+                                <input type="checkbox" id="verified" />
+                                <label for="verified">Verified</label>
+                            </p>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s6">
+
+                            <p class="input-field" id="seed-p">
+                                <input type="text" id="seed" value="100"/>
+                                <label for="seed">Min. Seeds</label>
+
+
+                            </p>
+                        </div>
+                        <div class="col s6">
+
+                            <p class="input-field" id="peer-p">
+                                <input type="text" id="peer" value="100" />
+                                <label for="peer">Min. Peers</label>
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+
+                    <div class="col s6 offset-s4 grid-example"><span class="flow-text"> <button class="btn waves-effect waves-light" id="form-add" type="submit" name="action">Submit
+                    <i class="fa fa-arrow-circle-right right"></i>
+                    </button></span>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- <a href="#" type="reset"  class="waves-effect waves-teal ">Agree</a> -->
+
+    </div>
+</template>

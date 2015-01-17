@@ -10,11 +10,8 @@ iron:router
 
 
 # linto
-
-jsdelivr:cdnify
 torrentz:search
 
-jsdelivr
 
 # linto
 
@@ -22,3 +19,10 @@ jsdelivr
 
 accounts-google
 accounts-ui
+
+raix:push
+#linto:fontawesome
+multiply:iron-router-progress
+jsdelivr:cdnify
+jsdelivr
+
