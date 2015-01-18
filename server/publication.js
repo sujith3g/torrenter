@@ -21,7 +21,7 @@ Meteor.publish("mytorrents", function(subId) {
         });
         return db_torrents.find({keywords:{$in:keywordList}});
     }else{
-    	if(db_subscriptions.find(subId)===1){
+    	if(db_subscriptions.find(subId).count()===1){
     		var sub = db_subscriptions.findOne(subId);
     		return db_torrents.find({keywords:{$in:[sub.keywordId]}});
     	}else{

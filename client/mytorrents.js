@@ -20,6 +20,13 @@ Template.sideBarAndHeader.helpers({
 		return db_category.find().fetch();
 	}
 });
+Template.sideBarAndHeader.events({
+	'click .keyword': function (evt) {
+		evt.preventDefault();
+		var subId = $(evt.target).attr("sub-id");
+		Router.go('myTorrents',{},{query:{sub:subId}});		
+	}
+});
 Template.createNew.events({
 	'submit .form1': function (evt) {
 		console.log("submitted");
