@@ -24,6 +24,84 @@
         -webkit-animation-fill-mode: both;
         animation-fill-mode: both;
     }
+      .animated.long {
+        -webkit-animation-duration: 4s;
+        animation-duration: 4s;
+    }
+    
+  @-webkit-keyframes blurredBlink {
+        0% {
+            filter: blur(8px);
+  -webkit-filter: blur(8px);
+        }
+         50% {
+            filter: blur(3px);
+  -webkit-filter: blur(3px);
+        }
+        
+         100% {
+            filter: blur(0px);
+  -webkit-filter: blur(0px);
+        }
+      
+    }
+    @keyframes blurredBlink {
+     0% {
+            filter: blur(0px);
+  -webkit-filter: blur(0px);
+        }
+         50% {
+            filter: blur(5px);
+  -webkit-filter: blur(5px);
+        }
+        
+         100% {
+            filter: blur(0px);
+  -webkit-filter: blur(0px);
+        }
+    }
+    .blurredBlink {
+        -webkit-animation-name: blurredBlink;
+        animation-name: blurredBlink;
+    }
+     @-webkit-keyframes fadeInLeft {
+        0% {
+            opacity: 0;
+            -webkit-transform: translateX(-20px);
+            transform: translateX(-20px);
+        }
+         80% {
+            opacity: 1;
+            -webkit-transform: translateX(5px);
+            transform: translateX(5px);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+        }
+    }
+    @keyframes fadeInLeft {
+           0% {
+            opacity: 0;
+            -webkit-transform: translateX(-20px);
+            transform: translateX(-20px);
+        }
+         80% {
+            opacity: 1;
+            -webkit-transform: translateX(5px);
+            transform: translateX(5px);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+        }
+    }
+    .fadeInLeft {
+        -webkit-animation-name: fadeInLeft;
+        animation-name: fadeInLeft;
+    }
     @-webkit-keyframes fadeInUp {
         0% {
             opacity: 0;
@@ -209,136 +287,4 @@
     </li>
     <li class="bold absolute"><a href="#" id="logout">Logout</a>
     </li>
-</template>
-<template name="sideBarAndHeader">
-
-    <header>
-        <nav class="top-nav teal lighten-2">
-            <div class="container">
-                <div class="nav-wrapper"><a class="page-title">Torrentor</a>
-                </div>
-
-            </div>
-        </nav>
-        <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav full"><i class="mdi-navigation-menu"></i></a>
-        </div>
-        <ul id="nav-mobile" class="side-nav fixed">
-            <li class="logo teal darken-1">
-                <a id="logo-container" href="#" class="brand-logo">
-                    <img id="front-page-logo" src="img/pirate.png" />
-                </a>
-            </li>
-
-            <li class="no-padding">
-                <ul class="collapsible collapsible-accordion">
-                    <a class="collapsible-header active">Movies <span class="badge">1</span></a>
-                    <div class="collapsible-body" style="display: none;">
-                        <ul>
-                            <li class="active"><a href="#">Malayalam</a>
-                            </li>
-                            <li><a href="#">Hindi</a>
-                            </li>
-
-                        </ul>
-                    </div>
-
-                    <li class="bold active"><a class="collapsible-header">Games <span class="new badge">4</span></a>
-                        <div class="collapsible-body" style="display: none;">
-                            <ul>
-                                <li><a href="#">Fifa 15 <span class="new badge">4</span></a>
-                                </li>
-                                <li><a href="#">Fifa</a>
-                                </li>
-
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="bold"><a class="collapsible-header">TV <span class="new badge">3</span></a>
-                        <div class="collapsible-body" style="display: none;">
-                            <ul>
-                                <li><a href="#">Game of thrones</a>
-                                </li>
-                                <li><a href="#">Dexter</a>
-                                </li>
-
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
-            </li>
-            <li class="bold"><a href="#">About</a>
-            </li>
-            <li class="bold"><a href="#">Help</a>
-            </li>
-            {{> logged_in}}
-        </ul>
-    </header>
-</template>
-<template name="createNew">
-    <a class="add-btn waves-effect waves-light modal-trigger btn-floating btn-large red" href="#modal1"><i class="mdi-content-add"></i> </a>
-
-    <!-- Modal Structure -->
-    <div id="modal1" class="modal">
-        <h4>Add Tag</h4>
-        <div class="">
-            <form class="form1" method="post">
-                <div class="">
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="text" type="text" required>
-                            <label for="text">Keyword</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col s6">
-                            <label>Category</label>
-                            <select id="category">                                
-                                {{#each elements}}
-                                <option value="{{_id}}">{{name}}</option>
-                                {{/each}}                                
-                            </select>
-                        </div>
-                        <div class="col s6">
-                            <label for="filters">Filter</label>
-                            <p id="filters">
-                                <input type="checkbox" id="verified" />
-                                <label for="verified">Verified</label>
-                            </p>
-
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col s6">
-
-                            <p class="input-field" id="seed-p">
-                                <input type="text" id="seed" value="100"/>
-                                <label for="seed">Min. Seeds</label>
-
-
-                            </p>
-                        </div>
-                        <div class="col s6">
-
-                            <p class="input-field" id="peer-p">
-                                <input type="text" id="peer" value="100" />
-                                <label for="peer">Min. Peers</label>
-
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="row">
-
-                    <div class="col s6 offset-s4 grid-example"><span class="flow-text"> <button class="btn waves-effect waves-light" id="form-add" type="submit" name="action">Submit
-                    <i class="fa fa-arrow-circle-right right"></i>
-                    </button></span>
-                    </div>
-                </div>
-            </form>
-        </div>
-        <!-- <a href="#" type="reset"  class="waves-effect waves-teal ">Agree</a> -->
-
-    </div>
 </template>
