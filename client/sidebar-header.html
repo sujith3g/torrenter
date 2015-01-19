@@ -10,48 +10,27 @@
         </nav>
         <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav full"><i class="mdi-navigation-menu"></i></a>
         </div>
-        <ul id="nav-mobile" class="side-nav fixed animated fadeInLeft">
+        <ul id="nav-mobile" class="side-nav fixed">
             <li class="logo teal darken-1">
-                <a id="logo-container" href="#" class="brand-logo blurredBlink animated long">
+                <a id="logo-container" href="#" class="brand-logo">
                     <img id="front-page-logo" src="img/pirate.png" />
                 </a>
             </li>
 
             <li class="no-padding">
-                <ul class="collapsible collapsible-accordion">
-                    <a class="collapsible-header active">Movies <span class="badge">1</span></a>
-                    <div class="collapsible-body" style="display: none;">
-                        <ul>
-                            <li class="active"><a href="#">Malayalam</a>
-                            </li>
-                            <li><a href="#">Hindi</a>
-                            </li>
-
-                        </ul>
-                    </div>
-
-                    <li class="bold active"><a class="collapsible-header">Games <span class="new badge">4</span></a>
+                <ul class="collapsible collapsible-accordion">                    
+                    {{#each subs}}                    
+                    <li class="bold active"><a class="collapsible-header">{{name}} <span class="new badge">1</span></a>
                         <div class="collapsible-body" style="display: none;">
                             <ul>
-                                <li><a href="#">Fifa 15 <span class="new badge">4</span></a>
-                                </li>
-                                <li><a href="#">Fifa</a>
-                                </li>
-
+                                {{#each data}}
+                                <li><a href="#" class="keyword" sub-id="{{_id}}">{{keywordText}} <span class="new badge">1</span></a>
+                                </li>                                
+                                {{/each}}
                             </ul>
                         </div>
                     </li>
-                    <li class="bold"><a class="collapsible-header">TV <span class="new badge">3</span></a>
-                        <div class="collapsible-body" style="display: none;">
-                            <ul>
-                                <li><a href="#">Game of thrones</a>
-                                </li>
-                                <li><a href="#">Dexter</a>
-                                </li>
-
-                            </ul>
-                        </div>
-                    </li>
+                    {{/each}}                   
                 </ul>
             </li>
             <li class="bold"><a href="#">About</a>

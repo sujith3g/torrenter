@@ -21,7 +21,13 @@ Template.sideBarAndHeader.helpers({
 	}
 });
 Template.sideBarAndHeader.events({
-	
+
+	'click .keyword': function (evt) {
+		evt.preventDefault();
+		var subId = $(evt.target).attr("sub-id");
+		Router.go('myTorrents',{},{query:{sub:subId}});		
+	}
+
 });
 Template.createNew.events({
 	'click .modal-trigger': function () {
@@ -41,18 +47,18 @@ Template.createNew.events({
 		var modelElement = $('#modal1');
 		var textElement = $("#text");
 		keyword.text = textElement.val();
-		keyword.category = $("#category").val();
+		keyword.categoryId = $("#category").val();
 		keyword.seed = $("#seed").val();
 		keyword.peer = $("#peer").val();
 		keyword.verified = $('#verified').is(':checked');
 		var sub = {};
 
-		Meteor.call('getKeyword', _.pick(keyword,"text","category"), function (error, result) {
+		Meteor.call('getKeyword', _.pick(keyword,"text","categoryId"), function (error, result) {
 			if(error){
 				console.log(error);
 			}else{
 				keyword.keywordId = result;
-				Meteor.call('subscribeKeyword', keyword, function (error, result) {
+				Meteor.call('subscribeKeyword', _.omit(keyword,"text"), function (error, result) {
 					if(error){
 						console.log(error);
 					}else{
