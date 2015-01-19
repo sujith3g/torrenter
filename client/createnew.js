@@ -9,16 +9,11 @@ Template.createNew.helpers({
 });
 
 Template.createNew.events({
-	'click .modal-trigger': function () {
-		if (Router.current().url !== '/#modal1')
-			Router.go('/#modal1');
-		
-		else
-			Router.go('/');
+	
 
 		
 		
-	},
+
 	'submit .form1': function (evt) {
 		console.log("submitted");
 		evt.preventDefault();

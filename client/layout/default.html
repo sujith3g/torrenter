@@ -17,7 +17,21 @@
         <link href='http://fonts.googleapis.com/css?family=Exo:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     </head>
     <style type="text/css">
-
+html{
+      -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+ #iron-router-progress {
+        background-color: #004d40;
+        box-shadow: 0 0 5px #004d40;
+    }
+#iron-router-progress.spinner:before {
+    border-color : #004d40;
+}
       .animated {
         -webkit-animation-duration: 1s;
         animation-duration: 1s;
