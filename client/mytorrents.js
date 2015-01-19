@@ -1,4 +1,4 @@
-Template.myTorrents.rendered = function () {
+Template.sideBarAndHeader.rendered = function () {
 	    // Initialize collapse button
     $(".button-collapse").sideNav({menuWidth: 240, activationWidth: 70});
     // Initialize collapsible
