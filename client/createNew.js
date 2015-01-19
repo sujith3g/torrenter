@@ -1,12 +1,4 @@
-Template.sideBarAndHeader.rendered = function () {
-	    // Initialize collapse button
-    $(".button-collapse").sideNav({menuWidth: 240, activationWidth: 70});
-    // Initialize collapsible
-    $('.collapsible').collapsible();
-    $('.dropdown-button').dropdown();
-    $('.modal-trigger').leanModal();
-    $('select').material_select();
-};
+
 Template.createNew.helpers({
 	elements: function(){
 
@@ -15,20 +7,7 @@ Template.createNew.helpers({
 		return els;
 	}
 });
-Template.sideBarAndHeader.helpers({
-	category: function () {
-		return db_category.find().fetch();
-	}
-});
-Template.sideBarAndHeader.events({
 
-	'click .keyword': function (evt) {
-		evt.preventDefault();
-		var subId = $(evt.target).attr("sub-id");
-		Router.go('myTorrents',{},{query:{sub:subId}});		
-	}
-
-});
 Template.createNew.events({
 	'click .modal-trigger': function () {
 		if (Router.current().url !== '/#modal1')
