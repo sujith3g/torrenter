@@ -300,7 +300,7 @@ Meteor.startup(function(){
     if(db_keywords.find().count()===0){
         var category = db_category.findOne({name:"Movies"});
         var kw = {text:"malayalam movies",categoryId:category._id,subCount:0};
-        kw.createdOn = Date.now();
+        kw.createdOn = moment().format("X");
         db_keywords.insert(kw);
     }
     var keyword = db_keywords.findOne({text:"malayalam movies"});
