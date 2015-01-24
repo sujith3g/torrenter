@@ -146,77 +146,61 @@
     <main>
         <ul class="collection with-header">
             <li class="collection-header">
-                <h4><tag>Malayalam</tag> : Latest Torrents</h4>
+             
+                <div>
+                <tag>Malayalam Movies</tag> : Latest Torrents
+                <div class="secondary-content">
+                    <i class="secondary-content ">movies>malayalam</i>
+                </div>
+                    
+                   
+                </div>
             </li>
-            <li class="collection-item">
-                <a href="http://torrentz.in/f5d565be88548569f093ebc50fc8c727023b009d">
-                    <div>Bhayya My Brother 2014 <b>Malayalam</b> DVDRip x264 AAC 5 1 E Subs MBRHDRG<a href="http://torrentz.in/f5d565be88548569f093ebc50fc8c727023b009d" class="secondary-content"><i class="secondary-content mdi-content-send"></i></a>
-                    </div>
-                </a>
-            </li>
-            <li class="collection-item">
-                <a href="http://torrentz.in/f5d565be88548569f093ebc50fc8c727023b009d">
-                    <div>Bhayya My Brother 2014 <b>Malayalam</b> DVDRip x264 AAC 5 1 E Subs MBRHDRG<a href="http://torrentz.in/f5d565be88548569f093ebc50fc8c727023b009d" class="secondary-content"><i class="secondary-content mdi-content-send"></i></a>
-                    </div>
-                </a>
-            </li>
-            <li class="collection-item">
-                <a href="http://torrentz.in/f5d565be88548569f093ebc50fc8c727023b009d">
-                    <div>Bhayya My Brother 2014 <b>Malayalam</b> DVDRip x264 AAC 5 1 E Subs MBRHDRG<a href="http://torrentz.in/f5d565be88548569f093ebc50fc8c727023b009d" class="secondary-content"><i class="secondary-content mdi-content-send"></i></a>
-                    </div>
-                </a>
-            </li>
-            <li class="collection-item">
-                <a href="http://torrentz.in/f5d565be88548569f093ebc50fc8c727023b009d">
-                    <div>Bhayya My Brother 2014 <b>Malayalam</b> DVDRip x264 AAC 5 1 E Subs MBRHDRG<a href="http://torrentz.in/f5d565be88548569f093ebc50fc8c727023b009d" class="secondary-content"><i class="secondary-content mdi-content-send"></i></a>
-                    </div>
-                </a>
-            </li>
-            <li class="collection-item">
-                <a href="http://torrentz.in/f5d565be88548569f093ebc50fc8c727023b009d">
-                    <div>Bhayya My Brother 2014 <b>Malayalam</b> DVDRip x264 AAC 5 1 E Subs MBRHDRG<a href="http://torrentz.in/f5d565be88548569f093ebc50fc8c727023b009d" class="secondary-content"><i class="secondary-content mdi-content-send"></i></a>
-                    </div>
-                </a>
-            </li>
-            <li class="collection-item">
-                <a href="http://torrentz.in/f5d565be88548569f093ebc50fc8c727023b009d">
-                    <div>Bhayya My Brother 2014 <b>Malayalam</b> DVDRip x264 AAC 5 1 E Subs MBRHDRG<a href="http://torrentz.in/f5d565be88548569f093ebc50fc8c727023b009d" class="secondary-content"><i class="secondary-content mdi-content-send"></i></a>
-                    </div>
-                </a>
-            </li>
-            <li class="collection-item">
-                <a href="http://torrentz.in/f5d565be88548569f093ebc50fc8c727023b009d">
-                    <div>Bhayya My Brother 2014 <b>Malayalam</b> DVDRip x264 AAC 5 1 E Subs MBRHDRG<a href="http://torrentz.in/f5d565be88548569f093ebc50fc8c727023b009d" class="secondary-content"><i class="secondary-content mdi-content-send"></i></a>
-                    </div>
-                </a>
-            </li>
-            <li class="collection-item">
-                <a href="http://torrentz.in/f5d565be88548569f093ebc50fc8c727023b009d">
-                    <div>Bhayya My Brother 2014 <b>Malayalam</b> DVDRip x264 AAC 5 1 E Subs MBRHDRG<a href="http://torrentz.in/f5d565be88548569f093ebc50fc8c727023b009d" class="secondary-content"><i class="secondary-content mdi-content-send"></i></a>
-                    </div>
-                </a>
-            </li>
-            <li class="collection-item">
-                <a href="http://torrentz.in/f5d565be88548569f093ebc50fc8c727023b009d">
-                    <div>Bhayya My Brother 2014 <b>Malayalam</b> DVDRip x264 AAC 5 1 E Subs MBRHDRG<a href="http://torrentz.in/f5d565be88548569f093ebc50fc8c727023b009d" class="secondary-content"><i class="secondary-content mdi-content-send"></i></a>
-                    </div>
-                </a>
-            </li>
-            <li class="collection-item">
-                <a href="http://torrentz.in/f5d565be88548569f093ebc50fc8c727023b009d">
-                    <div>Bhayya My Brother 2014 <b>Malayalam</b> DVDRip x264 AAC 5 1 E Subs MBRHDRG<a href="http://torrentz.in/f5d565be88548569f093ebc50fc8c727023b009d" class="secondary-content"><i class="secondary-content mdi-content-send"></i></a>
-                    </div>
-                </a>
-            </li>
-            <li class="collection-item">
-                <a href="http://torrentz.in/f5d565be88548569f093ebc50fc8c727023b009d">
-                    <div>Bhayya My Brother 2014 <b>Malayalam</b> DVDRip x264 AAC 5 1 E Subs MBRHDRG<a href="http://torrentz.in/f5d565be88548569f093ebc50fc8c727023b009d" class="secondary-content"><i class="secondary-content mdi-content-send"></i></a>
-                    </div>
-                </a>
-            </li>
+
+            {{#each torrents}}
+            {{> torrentCardItem}}
+            {{/each}}            
 
         </ul>
 
     </main>
 {{>createNew}} 
+</template>
+<template name="torrentCardItem">
+    <div class="row">
+        <div class="col s12 m12">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+              <span class="card-title">{{{title}}}</span>
+              <p>
+                    <div class="row">
+      <div class="col s4">size: {{size}}</div>
+      <div class="col s4">seeds/peers : {{seeds}}/{{peers}}</div>
+      <div class="col s4">verified : {{verified}}</div>
+     
+    </div>
+              </p>
+            </div>
+            <div class="card-action">
+              
+                <a href="{{url}}"><i class="fa fa-download"></i> Torrent File</a>
+                <a href="{{url}}"><i class="fa fa-magnet"></i> Magnet</a>
+                <a href="{{url}}">Ad Link</a>
+            </div>
+          </div>
+        </div>
+      </div>
+</template>
+<template name="torrentListItem">
+    <li class="collection-item">
+                <a href="{{url}}">
+                    <div>{{{title}}}<div>
+                 
+                         
+                   
+                    
+                    </div>
+                    </div>
+                </a>
+            </li>
 </template>

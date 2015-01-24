@@ -1,0 +1,55 @@
+<template name="sideBarAndHeader">
+
+    <header>
+        <nav class="top-nav teal lighten-2">
+            <div class="container">
+                <div class="nav-wrapper"><a class="page-title">Torrentor</a>
+                </div>
+
+            </div>
+        </nav>
+        <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav full"><i class="mdi-navigation-menu"></i></a>
+        </div>
+        <ul id="nav-mobile" class="side-nav fixed">
+            <li class="logo teal darken-1">
+                <a id="logo-container" href="#" class="brand-logo">
+                    <img id="front-page-logo" src="img/pirate.png" />
+                </a>
+            </li>
+
+            <li class="no-padding">
+                <ul class="collapsible collapsible-accordion">                    
+                    {{#each subs}}                    
+                   {{> subMenuList}}
+                    {{/each}}                   
+                </ul>
+            </li>
+            <li class="bold"><a href="#">About</a>
+            </li>
+            <li class="bold"><a href="#">Help</a>
+            </li>
+            {{> logged_in}}
+        </ul>
+    </header>
+</template>
+<template name="subMenuList">
+	
+	 <li class="bold active"><a class="collapsible-header">{{name}} 
+                   <span class="badge">{{keywordCount}}</span> 
+                    </a>
+                        <div class="collapsible-body" style="display: none;">
+                            <ul>
+                                {{#each data}}
+                               {{> subMenuItem}}                               
+                                {{/each}}
+                                
+                            </ul>
+                        </div>
+                    </li>
+</template>
+<template name="subMenuItem">
+	 <li><a href="#" class="keyword" sub-id="{{_id}}">{{keywordText}} 
+                                <!-- <span class="new badge">1</span> -->
+                                </a>
+                                </li> 
+</template>
