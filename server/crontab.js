@@ -31,7 +31,7 @@ Torrentz.prototype.getData = function(urlPart, keyword, url) {
     if (torrentzHttpResponse.statusCode === 200) {
         var torrents = [];
 
-        var cheerio = Npm.require("cheerio");
+        var cheerio = Meteor.npmRequire("cheerio");
         $ = cheerio.load(torrentzHttpResponse.content);
 
         $(".results dl").each(function(index, element) {
@@ -72,7 +72,7 @@ Torrentz.prototype.getView = function(url) {
     if (torrentzHttpResponse.statusCode === 200) {
         var htmlStrips = [];
 
-        var cheerio = Npm.require("cheerio");
+        var cheerio = Meteor.npmRequire("cheerio");
         $ = cheerio.load(torrentzHttpResponse.content);
 
         $(".download dl").each(function(index, element) {
@@ -94,51 +94,45 @@ Torrentz.prototype.crontab = function(cmd, objectIndex, timeInterval) {
             var index = objectIndex ? objectIndex : Random.id();
 
             _this.timeIntervalHandle[index] = Meteor.setInterval(function() {
-                var inputObject = torrentz_input.find({
-                    status: false,
-                    urlPart: {
-                        $exists: true
-                    },
-                    keyword: {
-                        $exists: true
-                    },
-                    url: {
+                var inputObject = db_keywords.find({
+                    crontabStatus: false,
+                    text: {
                         $exists: true
                     }
                 }, {
-                    limit: 1,
+                    limit: 1, // one keyword for one time
                     sort: {
-                        time: -1
+                        createdOn: -1
                     }
                 });
 
                 if (0 < inputObject.count()) {
                     inputObject.forEach(function(row) {
-                        torrentz_input.update({
+                        db_keywords.update({
                             _id: row._id
                         }, {
                             $set: {
-                                status: true // update to status TRUE
+                                crontabStatus: true // update to status TRUE
                             }
                         });
 
-                        _this.getData(row.urlPart, row.keyword, row.url).forEach(function(result) {
-                            var outputObject = torrentz_output.find({
+                        _this.getData("search", row.text, "http://torrentz.in").forEach(function(result) {
+                            var outputObject = db_torrents.find({
                                 url: result.url
                             });
 
                             if (outputObject.count() <= 0) {
-                                result.torrentz_input = [row._id];
+                                result.keywords = [row._id];
 
-                                torrentz_output.insert(result); // insert NEW
+                                db_torrents.insert(result); // insert NEW
                             } else {
                                 outputObject.forEach(function(item) {
                                     // if (-1 == item.torrentz_input.indexOf(row._id)) {
-                                    torrentz_output.update({
+                                    db_torrents.update({
                                         url: item.url
                                     }, {
                                         $addToSet: {
-                                            torrentz_input: row._id
+                                            keywords: row._id
                                         }
                                     }, {
                                         multi: true
@@ -149,9 +143,9 @@ Torrentz.prototype.crontab = function(cmd, objectIndex, timeInterval) {
                         });
                     });
                 } else {
-                    torrentz_input.update({}, {
+                    db_keywords.update({}, {
                         $set: {
-                            status: false // updateAll to status FALSE
+                            crontabStatus: false // updateAll to status FALSE
                         }
                     }, {
                         multi: true
