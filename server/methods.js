@@ -5,6 +5,7 @@ Meteor.methods({
 			if(db_keywords.find({text:keyword.text,categoryId:keyword.categoryId}).count()===0){
 
 				keyword.createdOn = moment().format("X");
+				keyword.crontabStatus = false;
 				return db_keywords.insert(keyword);		
 			}else{
 				var result = db_keywords.findOne({text:keyword.text,categoryId:keyword.categoryId});
