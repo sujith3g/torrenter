@@ -297,7 +297,7 @@ Meteor.startup(function(){
         db_category.insert({name:"XXX"});
         db_category.insert({name:"Others"});
     }
-    if(db_keywords.find().count()===0){
+    if(!db_keywords.findOne({text:"malayalam movies"})){
         var category = db_category.findOne({name:"Movies"});
         var kw = {text:"malayalam movies",categoryId:category._id,subCount:0};
         kw.createdOn = Date.now();

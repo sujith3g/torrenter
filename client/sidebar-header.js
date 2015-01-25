@@ -1,29 +1,42 @@
 Template.sideBarAndHeader.helpers({
-	category: function () {
-		
-		return db_category.find().fetch();
-	}
-	
+    category: function() {
+
+        return db_category.find().fetch();
+    }
+
 });
 Template.subMenuList.helpers({
-	keywordCount: function(){
-		console.log(this.data);
-		return this.data.length;
-	}
+    keywordCount: function() {
+        console.log(this.data);
+        return this.data.length;
+    }
 });
 Template.sideBarAndHeader.events({
 
-	'click .keyword': function (evt) {
-		evt.preventDefault();
-		var subId = $(evt.target).attr("sub-id");
-		Router.go('myTorrents',{},{query:{sub:subId}});		
-	}
+    'click .keyword': function(evt) {
+        evt.preventDefault();
+        var subId = $(evt.target).attr("sub-id");
+        Router.go('myTorrents', {}, {
+            query: {
+                sub: subId
+            }
+        });
+    },
+    "touchstart ul.side-nav.fixed": function(evt) {
+        $(evt.currentTarget).css("overflow-y", "auto")
+    },
+    "touchend ul.side-nav.fixed": function(evt) {
+        $(evt.currentTarget).css("overflow-y", "hidden")
+    }
 
 });
 
-Template.sideBarAndHeader.rendered = function () {
-	    // Initialize collapse button
-    $(".button-collapse").sideNav({menuWidth: 240, activationWidth: 70});
+Template.sideBarAndHeader.rendered = function() {
+    // Initialize collapse button
+    $(".button-collapse").sideNav({
+        menuWidth: 240,
+        activationWidth: 70
+    });
     // Initialize collapsible
     $('.collapsible').collapsible();
     $('.dropdown-button').dropdown();
