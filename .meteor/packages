@@ -7,16 +7,6 @@
 meteor-platform
 iron:router
 
-
-
-# linto
-torrentz:search
-
-
-# linto
-
-
-
 accounts-google
 accounts-ui
 
@@ -28,3 +18,9 @@ jsdelivr
 
 linto:jquery-ui
 gadicohen:jquery2
+
+http
+meteorhacks:npm
+
+
+npm-container
